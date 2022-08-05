@@ -1,0 +1,194 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* supprime les effets des élements déja cliqués */
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+
+.header {
+  z-index: 1;
+    i { display: flex;}
+}
+.header__logo {
+  width: 10.3rem;
+  height: 1.7rem;
+  cursor: pointer;
+  padding-top: 0.6rem;
+  padding-left: 6.4rem;
+}
+
+/* sous header des pages menus avec une image */
+.header__menu {
+  width: 100%;
+
+  &__picture img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+@media screen and (min-width: 426px) {
+  .header__menu__picture img {
+    height: 17rem;
+  }
+}
+
+/* titre du restaurant + coeur animé */
+.header__menu__title {
+  font-family: "Shrikhand";
+  border-radius: 2rem 2rem 0 0;
+  background-color: $fond-lightgrey;
+  @include flex(row, space-between, center);
+  padding: 1rem 0 0 1rem;
+  transform: translate(0, -40%);
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.like__heart i {
+  padding: 2rem 1.5rem 0 0;
+  margin-bottom: -0.7rem;
+}
+
+/* section  entrees-plats-desserts + vignettes + boutton commander */
+.menu__box {
+  display: flex;
+  flex-direction: column;
+  background-color: $fond-lightgrey;
+  position: relative;
+  margin-top: -3rem;
+}
+
+/* concerne la partie major sans le bouton commander */
+@media screen and (min-width: 1024px) {
+  .menu {
+    width: 98%;
+    margin-left: 2%;
+    @include flex (row, space-between, center);
+  }
+}
+
+.menu__title {
+  font-weight: 300;
+  font-size: 1rem;
+  border-bottom: solid $mint;
+  width: 2.5rem;
+  margin-left: 0.9rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .menu__start {
+    width: 33%;
+  }
+  .menu__main {
+    width: 33%;
+  }
+  .menu__dessert {
+    width: 33%;
+  }
+}
+
+/* chaque vignette */
+.menu__card {
+  background-color: white;
+  width: 88%;
+  margin-left: 4%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  @include flex(row, space-between, center);
+  @include box-shadow;
+  @include text-ajust;
+  position: relative;
+
+  @include media-min(1024px) {
+    margin-left: 0;
+  }
+
+  /* appeler chaque vignette pour l'animation progressive */
+  &:nth-child(2) {
+    opacity: 0;
+    animation: progress 1s 700ms forwards;
+  }
+
+  &:nth-child(3) {
+    opacity: 0;
+    animation: progress 1s 500ms forwards;
+  }
+
+  &:nth-child(4) {
+    opacity: 0;
+    animation: progress 1s 300ms forwards;
+  }
+
+  &:nth-child(5) {
+    opacity: 0;
+    animation: progress 1s 100ms forwards;
+  }
+/* apparition du check au survol */
+  &:hover .menu__card__check {
+    width: 4rem;
+    transition: width 1000ms;
+  }
+/* décalage du prix au survol */
+  &:hover .menu__card__price {
+    margin-right: 4rem;
+    transition: margin-right 1000ms;
+  }
+/* rotation du check */
+  &:hover .menu__card__check__circle {
+    animation: rotate_circle 1000ms;
+  }
+}
+
+/* texte de la vignette*/
+.menu__card__text {
+  line-height: 1.7rem;
+  @include text-ajust;
+}
+
+.menu__card__title {
+  font-size: 1.1rem;
+  @include text-ajust;
+}
+
+.menu__card__description {
+  font-weight: 300;
+  font-size: 0.9rem;
+  @include text-ajust;
+}
+
+.menu__card__price {
+  padding-top: 1.5rem;
+  font-weight: bold;
+  margin-right: 2%;
+  transition: margin-right 400ms;
+}
+/* icone check */
+.menu__card__check {
+  background-color: $mint;
+  color: white;
+  width: 0;
+  height: 100%;
+  font-size: 2rem;
+  text-align: center;
+  transition: width 400ms;
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include flex(column, center, center);
+
+  &__circle {
+    font-size: 1.5rem;
+  }
+}

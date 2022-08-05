@@ -1,0 +1,48 @@
+/* mixin simplifier flex */
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+/* boutons rose/violet */
+@mixin button {
+    border-radius: 2.5rem;
+    cursor: pointer;
+    background: linear-gradient(to left bottom, $rose, $violet);
+    color: white;
+    margin: auto;
+    text-align: center;
+    padding: 1rem 0 1rem 0;
+    border: none;
+    font-size: 1rem;
+}
+
+/* effet opacité + ombre sur les boutons rose/violet */
+@mixin button_effect {
+    box-shadow: 5px 5px 10px #575757;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* ombres */
+@mixin box-shadow {
+    box-shadow: 0.3rem 0.3rem 0.3rem rgb(230, 230, 230);
+}
+
+/* maitrise de l'overflow */
+@mixin text-ajust {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* media queries pour responsive */
+@mixin media-min($_min-width) {
+    @media screen and (min-width: $_min-width) {
+        & {
+            @content;
+        }
+    }
+}

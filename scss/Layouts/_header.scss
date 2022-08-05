@@ -1,0 +1,15 @@
+/* header de l'index */
+
+.header {
+
+    width: 100%;
+    height: 1rem;
+    @include flex(row, center, center);
+      .header__logo {
+    width: 10rem;
+    padding-left: 41.4rem;
+    cursor: pointer;
+
+    
+  }
+}

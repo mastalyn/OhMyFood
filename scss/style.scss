@@ -1,0 +1,21 @@
+//utils
+@import "./Utils/variables";
+@import "./Utils/mixins";
+//font
+@import "./Utils/font.scss";
+
+//base
+@import "./Base/keyframes";
+
+//components
+@import "./Components/button";
+@import "./Components/spinner";
+
+//layouts
+@import "./Layouts/footer";
+
+
+//pages
+@import "./Pages/index";
+@import "./Pages/menus";
+
