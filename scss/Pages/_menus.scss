@@ -1,5 +1,6 @@
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: $roboto, sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -14,16 +15,25 @@ a {
 
 
 .header {
-  z-index: 1;
-    i { display: flex;}
-}
-.header__logo {
-  width: 10.3rem;
-  height: 1.7rem;
-  cursor: pointer;
-  padding-top: 0.6rem;
-  padding-left: 6.4rem;
-}
+    width: 100%;
+    height: 3rem;
+    @include flex(row, center, center);
+    margin: auto;
+    position: relative;
+   /* icone flèche du header*/
+    i {
+      font-size: 1.2rem;
+      position: absolute;
+      bottom: 30%;
+      left: 3%;
+    }
+  }
+  .header__logo {
+    width: 10.3rem;
+    height: 1.7rem;
+    cursor: pointer;
+    padding-top: 0.6rem;
+  }
 
 /* sous header des pages menus avec une image */
 .header__menu {
@@ -42,7 +52,7 @@ a {
 
 /* titre du restaurant + coeur animé */
 .header__menu__title {
-  font-family: "Shrikhand";
+  font-family: $shrikhand;
   border-radius: 2rem 2rem 0 0;
   background-color: $fond-lightgrey;
   @include flex(row, space-between, center);
@@ -60,135 +70,294 @@ a {
 }
 
 /* section  entrees-plats-desserts + vignettes + boutton commander */
-.menu__box {
-  display: flex;
-  flex-direction: column;
-  background-color: $fond-lightgrey;
+section{
   position: relative;
-  margin-top: -3rem;
-}
+  h2{
+      font-size: 15px;
+      font-weight: normal;
+      padding-left: 20px;
+  }
+  /* Tiret Vert sous le titre */
+  .cat_title{
+    font-weight: 300;
+    font-size: 1rem;
+    border-bottom: solid $mint;
+    width: 2.5rem;
+    margin-left: 0.9rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+      
+        
+      }
+  }
 
-/* concerne la partie major sans le bouton commander */
+  /* Btn radio choix des plats */
+  .btn-choice{
+      display: block;
+      position: absolute;
+      padding: 0px;
+      margin: 0px;
+      cursor: pointer;
+      height: 72px;
+      width: 90%;
+      z-index: 5;
+      opacity: 0;
+      border-radius: 10px;
+      border: 1px solid black;
+
+  }
+  input[type=radio]{
+      display: none;
+  }
+  input:checked{
+      & ~ .price{
+          transform: translate(-200%, 0); 
+      }
+      & ~ .progress{
+          transform: scaleX(1);
+      }
+      & ~ .text_menu{
+          .menu_title, .menu_description{
+              width: 200px;
+          }
+          
+      }
+  }
+   
+  article{
+      box-shadow: 1px 1px 10px rgb(200, 200, 200);
+      background-color: white;
+      width: 90%;
+      border: 1px none black;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 25px auto;
+      & > .price{
+          transition: all 400ms linear;
+          
+      }
+      
+      
+      & > .progress{
+          transition: all 400ms linear;   
+      }
+      
+      &:hover {
+          & > .progress{
+              & > i{
+                  /* transform: rotate(1turn); */
+                  animation: rotate_circle 400ms 200ms;
+                  
+              }
+              transform: scaleX(1); 
+          }
+          & > .price{
+              transform: translate(-200%, 0); 
+              
+          }
+          .menu_title, .menu_description{
+              width: 200px;
+          }
+          
+      }
+      
+      .progress{
+          background-color: $mint;
+          border: 1px none black;
+          border-radius: 0px 10px 10px 0px;
+          width: 15%;
+          transform: scaleX(0);
+          transform-origin: 100% 100%;
+          i{
+              color: white;
+              position: relative;
+              left: calc(50% - 12px);
+              top: calc(50% - 12px);
+              font-size: 25px;
+              transition: all 400ms linear;
+          }
+      }
+      
+      
+      .text_menu{
+          margin-left: 10px;
+          color: black;
+          
+          .menu_title{
+              margin-bottom: -10px;
+              font-weight: bold;
+              font-size: 16px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 0px;
+          }
+          .menu_description{
+              font-size: 13px;
+              transition: all 400ms linear;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              
+
+              
+          }
+      }
+      .price{
+          margin: 40px 25px 0px 0px;
+          color: black;
+          font-weight: bold;
+          font-size: 14px;
+          position: absolute;
+          left: 90%;
+          
+      }
+     
+      
+
+      &:nth-child(2) {
+        opacity: 0;
+        animation: progress 1s 100ms forwards;
+      }
+    
+      &:nth-child(3) {
+        opacity: 0;
+        animation: progress 1s 300ms forwards;
+      }
+    
+      &:nth-child(4) {
+        opacity: 0;
+        animation: progress 1s 500ms forwards;
+      }
+    
+      &:nth-child(5) {
+        opacity: 0;
+        animation: progress 1s 700ms forwards;
+      }
+    
+      }
+      
+  
+  @media screen and (min-width: 768px) {
+        
+ 
+    section{
+        input:checked{
+            & ~ .price{
+                transform: translate(-400%, 0); 
+            }
+            & ~ .progress{
+                transform: scaleX(1);
+            }
+            & ~ .text_menu{
+                .menu_title, .menu_description{
+                    width: 400px;
+                }
+                
+            }
+        }
+        article{
+            .price{
+                left: 90%;
+            }
+            &:hover{
+                & > .price{
+                    transform: translate(-400%, 0);
+                }
+                .menu_title, .menu_description{
+                    width: 400px;
+                }
+            }
+        }
+    }
+   
+}
+/* Desktop */
 @media screen and (min-width: 1024px) {
-  .menu {
-    width: 98%;
-    margin-left: 2%;
-    @include flex (row, space-between, center);
-  }
+  
+    .group_menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        section{
+            .tiret_vert{
+                top: 35px;
+            }
+            width: 30%;
+            input:checked{
+                & ~ .price{
+                    transform: translate(-175%, 0); 
+                }
+                & ~ .progress{
+                    transform: scaleX(1);
+                }
+                & ~ .text_menu{
+                    .menu_title, .menu_description{
+                        width: 185px;
+                    }
+                    
+                }
+            }
+            article{
+                width: 100%;
+                &:hover{
+                    .menu_title, .menu_description{
+                        width: 185px;
+                    }
+                    & > .price{
+                        transform: translate(-195%, 0); 
+                    }
+                    & > .progress{
+                        
+                        transform: scaleX(1); 
+                    }
+                }
+            }
+        }
+    }
+  
 }
-
-.menu__title {
-  font-weight: 300;
-  font-size: 1rem;
-  border-bottom: solid $mint;
-  width: 2.5rem;
-  margin-left: 0.9rem;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
+@media screen and (min-width: 1440px){
+  
+    .group_menu{
+        
+        section{
+            input:checked{
+                & ~ .price{
+                    transform: translate(-250%, 0); 
+                }
+                & ~ .progress{
+                    transform: scaleX(1);
+                }
+                & ~ .text_menu{
+                    .menu_title, .menu_description{
+                        width: 100%;
+                    }
+                    
+                }
+            }
+            article{
+                &:hover{
+                    .menu_title, .menu_description{
+                        width: 100%;
+                    }
+                    & > .price{
+                        transform: translate(-250%, 0); 
+                    }
+                    & > .progress{
+                        
+                        transform: scaleX(1); 
+                    }
+                }
+            }
+        }
+    }
+    
 }
-@media screen and (min-width: 1024px) {
-  .menu__start {
-    width: 33%;
-  }
-  .menu__main {
-    width: 33%;
-  }
-  .menu__dessert {
-    width: 33%;
-  }
-}
+  
+  /* anime apparition */
 
-/* chaque vignette */
-.menu__card {
-  background-color: white;
-  width: 88%;
-  margin-left: 4%;
-  margin-top: 1rem;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  @include flex(row, space-between, center);
-  @include box-shadow;
-  @include text-ajust;
-  position: relative;
+  
 
-  @include media-min(1024px) {
-    margin-left: 0;
-  }
-
-  /* appeler chaque vignette pour l'animation progressive */
-  &:nth-child(2) {
-    opacity: 0;
-    animation: progress 1s 700ms forwards;
-  }
-
-  &:nth-child(3) {
-    opacity: 0;
-    animation: progress 1s 500ms forwards;
-  }
-
-  &:nth-child(4) {
-    opacity: 0;
-    animation: progress 1s 300ms forwards;
-  }
-
-  &:nth-child(5) {
-    opacity: 0;
-    animation: progress 1s 100ms forwards;
-  }
-/* apparition du check au survol */
-  &:hover .menu__card__check {
-    width: 4rem;
-    transition: width 1000ms;
-  }
-/* décalage du prix au survol */
-  &:hover .menu__card__price {
-    margin-right: 4rem;
-    transition: margin-right 1000ms;
-  }
-/* rotation du check */
-  &:hover .menu__card__check__circle {
-    animation: rotate_circle 1000ms;
-  }
-}
-
-/* texte de la vignette*/
-.menu__card__text {
-  line-height: 1.7rem;
-  @include text-ajust;
-}
-
-.menu__card__title {
-  font-size: 1.1rem;
-  @include text-ajust;
-}
-
-.menu__card__description {
-  font-weight: 300;
-  font-size: 0.9rem;
-  @include text-ajust;
-}
-
-.menu__card__price {
-  padding-top: 1.5rem;
-  font-weight: bold;
-  margin-right: 2%;
-  transition: margin-right 400ms;
-}
-/* icone check */
-.menu__card__check {
-  background-color: $mint;
-  color: white;
-  width: 0;
-  height: 100%;
-  font-size: 2rem;
-  text-align: center;
-  transition: width 400ms;
-  position: absolute;
-  top: 0;
-  right: 0;
-  @include flex(column, center, center);
-
-  &__circle {
-    font-size: 1.5rem;
-  }
-}

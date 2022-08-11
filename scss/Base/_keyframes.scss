@@ -37,7 +37,9 @@
 
   100% {
       transform: rotate(360deg);
+      position: fixed;
   }
+  
 }
 
 /* animation  des vignettes menu */
@@ -50,5 +52,18 @@
   100% {
       opacity: 1;
       transform: translate(0);
+  }
+}
+@keyframes like {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    background: linear-gradient(to bottom, $violet,$rose);
+    -webkit-background-clip: text;
+  }
+  100% {
+    background: linear-gradient(to bottom, $violet, $rose);
+    -webkit-background-clip: text;
   }
 }

@@ -33,117 +33,196 @@
   <!-- nom du restaurant de la page avec icone coeur -->
   <div class="header__menu__title">
     <h1>La palette du goût</h1>
-    <div class="button_like">
-      <i class="far fa-heart button_like__heart button_like__heart--empty"></i>
-      <i class="fas fa-heart button_like__heart button_like__heart--full"></i>
-    </div>
-  </div>
+      <div class="button_like">
+     
+          <label class="checkbox-like">
+                    <input type="checkbox"/>
+                    <span class="far fa-heart unchecked"></span>
+                    <span class="fas fa-heart checked"></span>
+                </label>  
   
-  <!-- section regroupant toute la partie sous le nom du restaurant jusqu'au bouton "commander" -->
-  <section class="menu__box">
+      </div>
+  </div>
+  <div class="group_menu">
+    <section class="entree">
+        <h2 class="cat_title">ENTRÉES</h2>
+       
+            <article class="entree_1" id="entree_1_palette">
+                <input type="radio" id="ent_1" name="entree"  />
+                <label for="ent_1"  id="e_1-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Fricassée d'escargot
+                    </h2>
+                    <p class="menu_description">
+                        Au piment d'Espelette
+                    </p>
+                </div>
+                <p class="price">25€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="entree_2" id="entree_2_palette">
+                <input type="radio" id="e_2" name="entree"  />
+                <label for="e_2"  id="e_2-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Foie gras de canard mi-cuit
+                    </h2>
+                    <p class="menu_description">
+                        Et ses copeaux de truffe noire
+                    </p>
+                </div>
+                <p class="price">35€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="entree_3" id="entree_3_palette">
+                <input type="radio" id="e_3" name="entree"  />
+                <label for="e_3"  id="e_3-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Oeuf au plat
+                    </h2>
+                    <p class="menu_description">
+                        Assaisonné à la truffe sur lit de caviar
+                    </p>
+                </div>
+                <p class="price">20€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+    </section><!--Entrées-->
+    <section class="plats">
+        <h2 class="cat_title">PLATS</h2>
+       
+            <article class="plats_1" id="plats_1_palette">
+                <input type="radio" id="p_1" name="plats" />
+                <label for="p_1"  id="p_1-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Filet de boeuf aux herbes
+                    </h2>
+                    <p class="menu_description">
+                        Accompagné de sa ribambelle de légumes
+                    </p>
+                </div>
+                <p class="price">40€</p>
+                
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="plats_2" id="plats_2_palette">
+                <input type="radio" id="p_2" name="plats" />
+                <label for="p_2"  id="p_2-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Parmentier de queue de boeuf
+                    </h2>
+                    <p class="menu_description">
+                        À la truffe noire sur sa purée de panais
+                    </p>
+                </div>
+                <p class="price">35€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="plats_3" id="plats_3_palette">
+                <input type="radio" id="p_3" name="plats" />
+                <label for="p_3"  id="p_3-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Filet de turbot
+                    </h2>
+                    <p class="menu_description">
+                        Aux agrumes
+                    </p>
+                </div>
+                <p class="price">44€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+    </section> <!--Plats-->
+    <section class="desserts">
+        <h2 class="cat_title">DESSERTS</h2>
+       
+        
+            <article class="desserts_1" id="desserts_1_palette">
+                <input type="radio" id="d_1" name="desserts" />
+                <label for="d_1"  id="d_1-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Paris-Brest
+                    </h2>
+                    <p class="menu_description">
+                        Revisité
+                    </p>
+                </div>
+                <p class="price">18€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="desserts_2" id="desserts_2_palette">
+                <input type="radio" id="d_2" name="desserts" />
+                <label for="d_2"  id="d_2-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Macaron au chocolat d'exception
+                    </h2>
+                    <p class="menu_description">
+                        Et glace à la vanille de Madagascar
+                    </p>
+                </div>
+                <p class="price">22€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="desserts_3" id="desserts_3_palette">
+                <input type="radio" id="d_3" name="desserts" />
+                <label for="d_3"  id="d_3-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Mousse au chocolat 
+                    </h2>
+                    <p class="menu_description">
+                        Au piment d'Espelette et à la truffe noire
+                    </p>
+                </div>
+                <p class="price">23€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+    </section><!-- Desserts -->
+</div>
+  
+  
+ 
     
-    <div class="menu">
-      <!-- concerne les vignettes et leur titre sans le bouton commander -->
-      <div class="menu__start">
-        <!-- les entrées -->
-        <h2 class="menu__title">ENTRÉES</h2>
-        
-        <div class="menu__card">
-          <!-- vignette -->
-          <div class="menu__card__text">
-            <div class="menu__card__title">Fricassée d'escargot</div>
-            <div class="menu__card__description">Au piment d'Espelette</div>
-          </div>
-          <div class="menu__card__price">25€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-        
-        <div class="menu__card">
-          <div class="menu__card__text">
-            <div class="menu__card__title">Foie gras de canard mi-cuit</div>
-            <div class="menu__card__description">Et ses copeaux de truffe noire</div>
-          </div>
-          <div class="menu__card__price">35€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-        
-        <div class="menu__card">
-          <div class="menu__card__text">
-            <div class="menu__card__title">Oeuf au plat</div>
-            <div class="menu__card__description">Assaisonné à la truffe sur lit de caviar</div>
-          </div>
-          <div class="menu__card__price">20€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-      </div>
-      
-      <div class="menu__main">
-        <!-- les plats -->
-        <h2 class="menu__title">PLATS</h2>
-        
-        <div class="menu__card">
-          <div class="menu__card__text">
-            <div class="menu__card__title">Filet de boeuf aux herbes</div>
-            <div class="menu__card__description">Accompagné de sa ribambelle de légumes</div>
-          </div>
-          <div class="menu__card__price">40€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-        
-        <div class="menu__card">
-          <div class="menu__card__text">
-            <div class="menu__card__title">Parmentier de queue de boeuf</div>
-            <div class="menu__card__description">À la truffe noire sur sa purée de panais</div>
-          </div>
-          <div class="menu__card__price">35€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-        
-        <div class="menu__card">
-          <div class="menu__card__text">
-            <div class="menu__card__title">Filet de turbot</div>
-            <div class="menu__card__description">Aux agrumes</div>
-          </div>
-          <div class="menu__card__price">44€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-      </div>
-      
-      <div class="menu__dessert">
-        <!-- les desserts -->
-        <h2 class="menu__title">DESSERTS</h2>
-        
-        <div class="menu__card">
-          <div class="menu__card__text">
-            <div class="menu__card__title">Paris-Brest</div>
-            <div class="menu__card__description">Revisité</div>
-          </div>
-          <div class="menu__card__price">18€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-        
-        <div class="menu__card">
-          <div class="menu__card__text">
-            <div class="menu__card__title">Macaron au chocolat d'exception</div>
-            <div class="menu__card__description">Et glace à la vanille de Madagascar</div>
-          </div>
-          <div class="menu__card__price">22€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-        
-        <div class="menu__card">
-          <div class="menu__card__text">
-            <div class="menu__card__title">Mousse au chocolat</div>
-            <div class="menu__card__description">Au piment d'Espelette et à la truffe noire</div>
-          </div>
-          <div class="menu__card__price">23€</div>
-          <div class="menu__card__check"><i class="menu__card__check__circle fas fa-check-circle"></i></div>
-        </div>
-      </div>
-    </div>
-    
-    <button class="button__order">Commander</button>
-  </section>
+    <button class="button__order">commander</button>
   
   <footer class="footer">
     

@@ -50,6 +50,7 @@
   }
   100% {
     transform: rotate(360deg);
+    position: fixed;
   }
 }
 /* animation  des vignettes menu */
@@ -61,6 +62,19 @@
   100% {
     opacity: 1;
     transform: translate(0);
+  }
+}
+@keyframes like {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    background: linear-gradient(to bottom, #9356DC, #FF79DA);
+    -webkit-background-clip: text;
+  }
+  100% {
+    background: linear-gradient(to bottom, #9356DC, #FF79DA);
+    -webkit-background-clip: text;
   }
 }
 /* bouton "explorer nos restaurants" sur l'index */
@@ -95,9 +109,12 @@
   padding: 1rem 0 1rem 0;
   border: none;
   font-size: 1rem;
-  width: 11rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 13.6rem;
+  font-weight: 400;
   /* effet sur ce bouton */
 }
 .button__order:hover {
@@ -107,35 +124,33 @@
 }
 
 /* bouton forme de coeur - page index + menus */
-.button_like {
-  font-size: 1.5rem;
-  position: relative;
-}
-.button_like__heart {
+.checkbox-like {
   position: absolute;
-  bottom: -0.5rem;
-  right: 2rem;
-  /* états des deux coeurs avant la transition */
+  right: 20px;
+  bottom: 35px;
+  height: 25px;
+  font-size: 25px;
+  cursor: pointer;
 }
-.button_like__heart--full {
-  background: linear-gradient(to right bottom, #FF79DA, #9356DC);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  opacity: 0;
-  transition: opacity 800ms;
+
+.checkbox-like.checkbox-like--position {
+  position: initial;
+  margin-top: 20px;
 }
-.button_like__heart--empty {
-  opacity: 1;
-  transition: opacity 800ms;
+
+.checkbox-like input[type=checkbox]:checked ~ .unchecked {
+  display: none;
 }
-.button_like:hover .button_like__heart--full {
-  opacity: 1;
-  transition: opacity 800ms, background-color 800ms;
+
+.checkbox-like input[type=checkbox]:checked ~ .checked {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0);
 }
-.button_like:hover .button_like__heart--empty {
-  opacity: 0;
-  transition: opacity 800ms;
+
+.checkbox-like input[type=checkbox], .checkbox-like .checked {
+  display: none;
+  animation: like 2s;
+  animation-fill-mode: forwards;
 }
 
 /* fond du loader */
@@ -563,7 +578,7 @@ h2 {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif, sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -577,10 +592,21 @@ a {
 }
 
 .header {
-  z-index: 1;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  /* icone flèche du header*/
 }
 .header i {
-  display: flex;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 30%;
+  left: 3%;
 }
 
 .header__logo {
@@ -588,7 +614,6 @@ a {
   height: 1.7rem;
   cursor: pointer;
   padding-top: 0.6rem;
-  padding-left: 6.4rem;
 }
 
 /* sous header des pages menus avec une image */
@@ -607,7 +632,7 @@ a {
 }
 /* titre du restaurant + coeur animé */
 .header__menu__title {
-  font-family: "Shrikhand";
+  font-family: "Shrikhand", cursive;
   border-radius: 2rem 2rem 0 0;
   background-color: rgb(244, 244, 244);
   display: flex;
@@ -627,26 +652,16 @@ a {
 }
 
 /* section  entrees-plats-desserts + vignettes + boutton commander */
-.menu__box {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(244, 244, 244);
+section {
   position: relative;
-  margin-top: -3rem;
+  /* Tiret Vert sous le titre */
 }
-
-/* concerne la partie major sans le bouton commander */
-@media screen and (min-width: 1024px) {
-  .menu {
-    width: 98%;
-    margin-left: 2%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+section h2 {
+  font-size: 15px;
+  font-weight: normal;
+  padding-left: 20px;
 }
-.menu__title {
+section .cat_title {
   font-weight: 300;
   font-size: 1rem;
   border-bottom: solid #99E2D0;
@@ -656,121 +671,201 @@ a {
   padding-bottom: 0.5rem;
 }
 
-@media screen and (min-width: 1024px) {
-  .menu__start {
-    width: 33%;
-  }
-  .menu__main {
-    width: 33%;
-  }
-  .menu__dessert {
-    width: 33%;
-  }
+/* Btn radio choix des plats */
+.btn-choice {
+  display: block;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  cursor: pointer;
+  height: 72px;
+  width: 90%;
+  z-index: 5;
+  opacity: 0;
+  border-radius: 10px;
+  border: 1px solid black;
 }
-/* chaque vignette */
-.menu__card {
+
+input[type=radio] {
+  display: none;
+}
+
+input:checked ~ .price {
+  transform: translate(-200%, 0);
+}
+input:checked ~ .progress {
+  transform: scaleX(1);
+}
+input:checked ~ .text_menu .menu_title, input:checked ~ .text_menu .menu_description {
+  width: 200px;
+}
+
+article {
+  box-shadow: 1px 1px 10px rgb(200, 200, 200);
   background-color: white;
-  width: 88%;
-  margin-left: 4%;
-  margin-top: 1rem;
-  padding: 0.5rem;
-  border-radius: 1rem;
+  width: 90%;
+  border: 1px none black;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  box-shadow: 0.3rem 0.3rem 0.3rem rgb(230, 230, 230);
+  margin: 25px auto;
+}
+article > .price {
+  transition: all 400ms linear;
+}
+article > .progress {
+  transition: all 400ms linear;
+}
+article:hover > .progress {
+  transform: scaleX(1);
+}
+article:hover > .progress > i {
+  /* transform: rotate(1turn); */
+  animation: rotate_circle 400ms 200ms;
+}
+article:hover > .price {
+  transform: translate(-200%, 0);
+}
+article:hover .menu_title, article:hover .menu_description {
+  width: 200px;
+}
+article .progress {
+  background-color: #99E2D0;
+  border: 1px none black;
+  border-radius: 0px 10px 10px 0px;
+  width: 15%;
+  transform: scaleX(0);
+  transform-origin: 100% 100%;
+}
+article .progress i {
+  color: white;
+  position: relative;
+  left: calc(50% - 12px);
+  top: calc(50% - 12px);
+  font-size: 25px;
+  transition: all 400ms linear;
+}
+article .text_menu {
+  margin-left: 10px;
+  color: black;
+}
+article .text_menu .menu_title {
+  margin-bottom: -10px;
+  font-weight: bold;
+  font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  position: relative;
-  /* appeler chaque vignette pour l'animation progressive */
-  /* apparition du check au survol */
-  /* décalage du prix au survol */
-  /* rotation du check */
+  padding: 0px;
 }
-@media screen and (min-width: 1024px) {
-  .menu__card {
-    margin-left: 0;
-  }
+article .text_menu .menu_description {
+  font-size: 13px;
+  transition: all 400ms linear;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.menu__card:nth-child(2) {
-  opacity: 0;
-  animation: progress 1s 700ms forwards;
+article .price {
+  margin: 40px 25px 0px 0px;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  left: 90%;
 }
-.menu__card:nth-child(3) {
-  opacity: 0;
-  animation: progress 1s 500ms forwards;
-}
-.menu__card:nth-child(4) {
-  opacity: 0;
-  animation: progress 1s 300ms forwards;
-}
-.menu__card:nth-child(5) {
+article:nth-child(2) {
   opacity: 0;
   animation: progress 1s 100ms forwards;
 }
-.menu__card:hover .menu__card__check {
-  width: 4rem;
-  transition: width 1000ms;
+article:nth-child(3) {
+  opacity: 0;
+  animation: progress 1s 300ms forwards;
 }
-.menu__card:hover .menu__card__price {
-  margin-right: 4rem;
-  transition: margin-right 1000ms;
+article:nth-child(4) {
+  opacity: 0;
+  animation: progress 1s 500ms forwards;
 }
-.menu__card:hover .menu__card__check__circle {
-  animation: rotate_circle 1000ms;
-}
-
-/* texte de la vignette*/
-.menu__card__text {
-  line-height: 1.7rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+article:nth-child(5) {
+  opacity: 0;
+  animation: progress 1s 700ms forwards;
 }
 
-.menu__card__title {
-  font-size: 1.1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@media screen and (min-width: 768px) {
+  section input:checked ~ .price {
+    transform: translate(-400%, 0);
+  }
+  section input:checked ~ .progress {
+    transform: scaleX(1);
+  }
+  section input:checked ~ .text_menu .menu_title, section input:checked ~ .text_menu .menu_description {
+    width: 400px;
+  }
+  section article .price {
+    left: 90%;
+  }
+  section article:hover > .price {
+    transform: translate(-400%, 0);
+  }
+  section article:hover .menu_title, section article:hover .menu_description {
+    width: 400px;
+  }
 }
-
-.menu__card__description {
-  font-weight: 300;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .group_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .group_menu section {
+    width: 30%;
+  }
+  .group_menu section .tiret_vert {
+    top: 35px;
+  }
+  .group_menu section input:checked ~ .price {
+    transform: translate(-175%, 0);
+  }
+  .group_menu section input:checked ~ .progress {
+    transform: scaleX(1);
+  }
+  .group_menu section input:checked ~ .text_menu .menu_title, .group_menu section input:checked ~ .text_menu .menu_description {
+    width: 185px;
+  }
+  .group_menu section article {
+    width: 100%;
+  }
+  .group_menu section article:hover .menu_title, .group_menu section article:hover .menu_description {
+    width: 185px;
+  }
+  .group_menu section article:hover > .price {
+    transform: translate(-195%, 0);
+  }
+  .group_menu section article:hover > .progress {
+    transform: scaleX(1);
+  }
 }
-
-.menu__card__price {
-  padding-top: 1.5rem;
-  font-weight: bold;
-  margin-right: 2%;
-  transition: margin-right 400ms;
+@media screen and (min-width: 1440px) {
+  .group_menu section input:checked ~ .price {
+    transform: translate(-250%, 0);
+  }
+  .group_menu section input:checked ~ .progress {
+    transform: scaleX(1);
+  }
+  .group_menu section input:checked ~ .text_menu .menu_title, .group_menu section input:checked ~ .text_menu .menu_description {
+    width: 100%;
+  }
+  .group_menu section article:hover .menu_title, .group_menu section article:hover .menu_description {
+    width: 100%;
+  }
+  .group_menu section article:hover > .price {
+    transform: translate(-250%, 0);
+  }
+  .group_menu section article:hover > .progress {
+    transform: scaleX(1);
+  }
 }
-
-/* icone check */
-.menu__card__check {
-  background-color: #99E2D0;
-  color: white;
-  width: 0;
-  height: 100%;
-  font-size: 2rem;
-  text-align: center;
-  transition: width 400ms;
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.menu__card__check__circle {
-  font-size: 1.5rem;
-}
+/* anime apparition */
 
 /*# sourceMappingURL=style.css.map */

@@ -13,52 +13,53 @@
 /* bouton "commander" page menus */
 .button__order {
   @include button;
-  width: 11rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  @include flex(row, space-around, center);
+  width: 13.6rem;
+  font-weight: 400;
+  
   
   /* effet sur ce bouton */
   &:hover {
     @include button_effect
   }
-}
+  
+  
+ 
+    
+  }
+
 
 /* bouton forme de coeur - page index + menus */
-.button_like {
-  font-size: 1.5rem;
-  position: relative;
-  
-  &__heart {
-    position: absolute;
-    bottom: -0.5rem;
-    right: 2rem;
-    
-    &--full {
-      background: linear-gradient(to right bottom, $rose, $violet);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      opacity: 0;
-      transition: opacity 800ms;
-    }
-    
-    &--empty {
-      opacity: 1;
-      transition: opacity 800ms;
-    }
-    
-    /* états des deux coeurs avant la transition */
-  }
-  
-  &:hover .button_like__heart--full {
-    
-    opacity: 1;
-    transition: opacity 800ms, background-color 800ms;
-  }
-  
-  &:hover .button_like__heart--empty {
-    
-    opacity: 0;
-    transition: opacity 800ms;
-  }
+
+
+.checkbox-like {
+  position: absolute;
+  right: 20px;
+  bottom: 35px;
+  height: 25px;
+  font-size: 25px;
+  cursor: pointer;
 }
+
+.checkbox-like.checkbox-like--position {
+  position: initial;
+  margin-top: 20px;
+}
+
+.checkbox-like input[type=checkbox]:checked ~ .unchecked {
+  display: none;
+}
+
+.checkbox-like input[type=checkbox]:checked ~ .checked {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0);
+}
+
+.checkbox-like input[type=checkbox], .checkbox-like .checked {
+  display: none;
+  animation: like 2s;
+  animation-fill-mode: forwards;
+  
+}
+
+
