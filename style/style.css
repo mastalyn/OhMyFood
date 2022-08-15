@@ -115,6 +115,7 @@
   align-items: center;
   width: 13.6rem;
   font-weight: 400;
+  margin-bottom: 1rem;
   /* effet sur ce bouton */
 }
 .button__order:hover {

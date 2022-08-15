@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La palette du goût</title>
+  <link rel="shortcut icon" href="images/favicon.ico">
+  
+  
+  <!-- fontawesome icones -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"  >    
+
+  <!-- mon fichier css -->
+  <link rel="stylesheet" type="text/css" href="./style/style.css" media="all" />
+</head>
+
+<body>
+  
+  <header class="header">
+    <a href="index.html"><i class="fas fa-arrow-left"></i></a>
+    <a href="index.html"><img class="header__logo" src="./images/ohmyfood.png" alt="Logo OhMyFood"></a>
+  </header>
+  
+  <!-- image header -->
+  <div class="header__menu">
+    <div class="header__menu__picture">
+      <img src="./images/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="a la Francaise">
+    </div>
+  </div>
+  
+  
+  <!-- nom du restaurant de la page avec icone coeur -->
+  <div class="header__menu__title">
+    <h1>A la française</h1>
+      <div class="button_like">
+     
+          <label class="checkbox-like">
+                    <input type="checkbox"/>
+                    <span class="far fa-heart unchecked"></span>
+                    <span class="fas fa-heart checked"></span>
+                </label>  
+  
+      </div>
+  </div>
+  <div class="group_menu">
+    <section class="entree">
+        <h2 class="cat_title">ENTRÉES</h2>
+       
+            <article class="entree_1" id="entree_1_alafrancaise">
+                <input type="radio" id="ent_1" name="entree"  />
+                <label for="ent_1"  id="e_1-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Tartare de poulpe acidulé
+                       
+                    </h2>
+                    <p class="menu_description">
+                        Aux zestes d'orange
+                    </p>
+                </div>
+                <p class="price">25€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="entree_2" id="entree_2_alafrancaise">
+                <input type="radio" id="e_2" name="entree"  />
+                <label for="e_2"  id="e_2-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Velouté de légumes d'antan
+                       
+                    </h2>
+                    <p class="menu_description">
+                        Carotte, panais, topinambour
+                    </p>
+                </div>
+                <p class="price">35€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="entree_3" id="entree_3_alafrancaise">
+                <input type="radio" id="e_3" name="entree"  />
+                <label for="e_3"  id="e_3-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Soupe à l'oignon
+                       
+                        
+                    </h2>
+                    <p class="menu_description">
+                        Revisitée
+                    </p>
+                </div>
+                <p class="price">20€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+           
+    </section><!--Entrées-->
+    <section class="plats">
+        <h2 class="cat_title">PLATS</h2>
+       
+            <article class="plats_1" id="plats_1_alafrancaise">
+                <input type="radio" id="p_1" name="plats" />
+                <label for="p_1"  id="p_1-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Coquilles Saint-Jacques
+                       
+                        
+                    </h2>
+                    <p class="menu_description">
+                        Accompagnées d'une purée de panais
+                    </p>
+                </div>
+                <p class="price">40€</p>
+                
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="plats_2" id="plats_2_alafrancaise">
+                <input type="radio" id="p_2" name="plats" />
+                <label for="p_2"  id="p_2-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Magret de canard
+                      
+                        
+                    </h2>
+                    <p class="menu_description">
+                        Et parmentier de pommes de terre
+                    </p>
+                </div>
+                <p class="price">35€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="plats_3" id="plats_3_alafrancaise">
+                <input type="radio" id="p_3" name="plats" />
+                <label for="p_3"  id="p_3-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Pigeonneau d’Ille-et-Vilaine
+                        
+                        
+                    </h2>
+                    <p class="menu_description">
+                        Sur son lit de gnocchis aux légumes
+                    </p>
+                </div>
+                <p class="price">44€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+    </section> <!--Plats-->
+    <section class="desserts">
+        <h2 class="cat_title">DESSERTS</h2>
+       
+        
+            <article class="desserts_1" id="desserts_1alafrancaise">
+                <input type="radio" id="d_1" name="desserts" />
+                <label for="d_1"  id="d_1-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Pétales de violettes glacés
+                      
+                        
+                      
+                    </h2>
+                    <p class="menu_description">
+                        Et purée de noisettes
+                    </p>
+                </div>
+                <p class="price">18€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="desserts_2" id="desserts_2_alafrancaise">
+                <input type="radio" id="d_2" name="desserts" />
+                <label for="d_2"  id="d_2-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Fondant au chocolat
+                       
+                        
+                        
+                        
+                        
+                        
+                      
+                    </h2>
+                    <p class="menu_description">
+                        Revisité
+                    </p>
+                </div>
+                <p class="price">22€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+        
+            <article class="desserts_3" id="desserts_3_alafrancaise">
+                <input type="radio" id="d_3" name="desserts" />
+                <label for="d_3"  id="d_3-btn" class="btn-choice"></label>
+                <div class="text_menu">
+                    <h2 class="menu_title">
+                        Millefeuille croustillant
+                        
+                        
+                    
+                    </h2>
+                    <p class="menu_description">
+                        Myrtilles et pâte d’amande
+                    </p>
+                </div>
+                <p class="price">23€</p>
+                <div class="progress">
+                    <i class="fas fa-check-circle"></i> 
+                </div>
+            </article>
+        
+    </section><!-- Desserts -->
+</div>
+  
+  
+ 
+    
+    <button class="button__order">commander</button>
+  
+  <footer class="footer">
+    
+    <div class="footer__title">ohmyfood</div>
+    
+    <div class="footer__list__icones">
+      <a href="#"><i class="footer__list__icones__ustensils fas fa-utensils"></i>Proposer un restaurant</a>
+      <a href="#"><i class="footer__list__icones__hands fas fa-hands-helping"></i>Devenir partenaire</a>
+    </div>
+    <div class="footer__list__noicones">
+      <a href="#">Mentions légales</a>
+      <a href="mailto:contact@ohmyfood.com">Contact</a>
+    </div>
+    
+  </footer>
+  
+</body>
+
+</html>
