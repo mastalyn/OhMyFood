@@ -847,7 +847,7 @@ article:nth-child(5) {
     transform: scaleX(1);
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
   .group_menu section input:checked ~ .price {
     transform: translate(-250%, 0);
   }
